@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryLens: Segment Tree Query Optimizer</title>
+    <!-- Use Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- D3.js v7 for data visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <h1>QueryLens</h1>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-view="engine">Query Engine</button>
+                <button class="nav-btn" data-view="visualization">Tree Visualization</button>
+                <button class="nav-btn" data-view="benchmarks">Benchmarks</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 1. Query Engine View -->
+            <section id="engine-view" class="view-section active">
+                <div class="card terminal-card">
+                    <div class="terminal-header">
+                        <div class="circles">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="title">QueryLens SQL Console</div>
+                    </div>
+                    <div class="terminal-body" id="query-console">
+                        <div class="sql-input-group">
+                            <span class="prompt">SQL&gt;</span>
+                            <input type="text" id="sql-input" value="SELECT SUM(sales) WHERE day BETWEEN 10 AND 50" autocomplete="off" spellcheck="false">
+                            <button id="run-query-btn" class="primary-btn">Execute</button>
+                        </div>
+                        <div id="query-result" class="query-result">
+                            <!-- Results will appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card dataset-card">
+                        <h3>Dataset Sample (Time-Series)</h3>
+                        <div id="dataset-chart" class="chart-container"></div>
+                    </div>
+                    <div class="card plan-card">
+                        <h3>Query Execution Plan</h3>
+                        <div id="query-plan" class="plan-content">
+                            <p class="placeholder-text">Run a query to see the execution plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Visualization View -->
+            <section id="visualization-view" class="view-section hidden">
+                <div class="toolbar">
+                    <div class="control-group">
+                        <label>Animation Speed:</label>
+                        <input type="range" id="anim-speed" min="100" max="2000" value="800">
+                    </div>
+                    <div class="control-group">
+                        <button id="step-btn" class="secondary-btn">Step</button>
+                        <button id="play-btn" class="primary-btn">Play</button>
+                        <button id="reset-btn" class="secondary-btn">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="tree-container card">
+                    <div class="tree-header">
+                        <h3>Segment Tree Execution Path</h3>
+                        <div class="legend">
+                            <span class="legend-item"><span class="color-box node-default"></span> Unvisited</span>
+                            <span class="legend-item"><span class="color-box node-partial"></span> Partial Overlap</span>
+                            <span class="legend-item"><span class="color-box node-full"></span> Full Overlap</span>
+                            <span class="legend-item"><span class="color-box node-lazy"></span> Lazy Update</span>
+                        </div>
+                    </div>
+                    <div id="segment-tree-viz" class="viz-svg-container"></div>
+                </div>
+                
+                <div class="lazy-prop-container card mt-4">
+                    <h3>Lazy Propagation State</h3>
+                    <div id="lazy-prop-viz" class="viz-svg-container" style="height: 200px;"></div>
+                </div>
+            </section>
+
+            <!-- 3. Benchmarks View -->
+            <section id="benchmarks-view" class="view-section hidden">
+                <div class="metrics-dashboard">
+                    <div class="card stat-card">
+                        <div class="stat-title">Segment Tree (100k rows)</div>
+                        <div class="stat-value">O(log N)</div>
+                        <div class="stat-desc">Execution time</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-title">Sequential Scan (100k rows)</div>
+                        <div class="stat-value">O(N)</div>
+                        <div class="stat-desc">Execution time</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-title">Average Speedup</div>
+                        <div class="stat-value highlight">350x</div>
+                        <div class="stat-desc">At 1M records</div>
+                    </div>
+                </div>
+
+                <div class="charts-grid mt-4">
+                    <div class="card main-chart-card">
+                        <h3>Query Latency vs. Dataset Size (Log-Log Scale)</h3>
+                        <div id="latency-chart" class="chart-container large-chart"></div>
+                    </div>
+                    <div class="card main-chart-card">
+                        <h3>Memory Usage Comparison</h3>
+                        <div id="memory-chart" class="chart-container large-chart"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dataset_sim.js"></script>
+    <script src="js/segment_tree_viz.js"></script>
+    <script src="js/lazy_propagation_viz.js"></script>
+    <script src="js/performance_graphs.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
