@@ -189,7 +189,6 @@ QueryLens/
 ├── src/                        # Implementations corresponding to include/
 │   ├── benchmark_main.cpp      # Isolated analytical scaling entrypoint
 │   └── main.cpp                # Interactive Core REPL environment
-├── docs/                       # Compilable LaTeX academic research reports
 └── frontend/                   # Interactive Dashboard Assets
     ├── index.html              # HTML Root
     ├── css/style.css           # Themes & DOM layouts
