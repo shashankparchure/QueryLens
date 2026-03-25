@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/QueryLens-1E3A8A?style=for-the-badge&logoColor=white" alt="QueryLens Logo" height="60" />
 </div>
 
-<h1 align="center">🔍 QueryLens: High-Performance Analytical Engine</h1>
+<h1 align="center"> QueryLens: High-Performance Analytical Engine</h1>
 
 <div align="center">
   
@@ -19,7 +19,7 @@
 
 ---
 
-## ⚡ Overview
+##  Overview
 
 As data volumes scale exponentially, traditional database filtering and aggregation approaches (like Sequential Scans) hit severe processing bottlenecks, requiring $\mathcal{O}(N)$ compute time. **QueryLens** explores, implements, and empirically benchmarks advanced multidimensional data structures designed to drastically accelerate range aggregate queries down to strict logarithmic $\mathcal{O}(\log N)$ boundaries.
 
@@ -27,7 +27,7 @@ Alongside the C++ backend execution engine, QueryLens ships with an interactive,
 
 ---
 
-## 📖 Table of Contents
+##  Table of Contents
 1. [Core Features & Objectives](#-core-features--objectives)
 2. [Data Structures & Complexities](#-data-structures--complexities)
 3. [The Query Processing Pipeline](#-the-query-processing-pipeline)
