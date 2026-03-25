@@ -36,17 +36,17 @@ Alongside the C++ backend execution engine, QueryLens ships with an interactive,
 
 ---
 
-## 🚀 Core Features & Objectives
+##  Core Features & Objectives
 
-* ⚡ **High-Performance Computing Engine**: Native C++ implementations avoiding dynamic memory thrashing.
-* 🧠 **Automated Query Planning**: A custom SQL parser that converts string commands dynamically into AST execution plans.
-* 🌳 **Robust Algorithms**: Benchmarking **Segment Trees**, **Lazy Propagation**, **Fenwick Trees**, and **B+ Trees**.
-* 🛡 **Jitter-Protected Benchmarking**: Built-in Monte-Carlo evaluation suits tracing pure $\mathcal{O}(\log N)$ scaling up to 1,000,000 rows without cache artifacts.
-* 📊 **Web Analytics Visualization**: Translating raw backend JSON formats directly into graphical SVG overlays dynamically.
+* **High-Performance Computing Engine**: Native C++ implementations avoiding dynamic memory thrashing.
+*  **Automated Query Planning**: A custom SQL parser that converts string commands dynamically into AST execution plans.
+*  **Robust Algorithms**: Benchmarking **Segment Trees**, **Lazy Propagation**, **Fenwick Trees**, and **B+ Trees**.
+* **Jitter-Protected Benchmarking**: Built-in Monte-Carlo evaluation suits tracing pure $\mathcal{O}(\log N)$ scaling up to 1,000,000 rows without cache artifacts.
+*  **Web Analytics Visualization**: Translating raw backend JSON formats directly into graphical SVG overlays dynamically.
 
 ---
 
-## 🧱 Data Structures & Complexities
+##  Data Structures & Complexities
 
 QueryLens meticulously maps different data structures to solve the *Range Aggregation Problem*.
 
@@ -76,7 +76,7 @@ Designed heavily for disk-based clustered indices indexing external memories. Wh
 
 ---
 
-## 🚂 The Query Processing Pipeline
+##  The Query Processing Pipeline
 
 QueryLens simulates real-world database ecosystems using an ad-hoc SQL console interface:
 
@@ -90,7 +90,7 @@ QueryLens> SELECT SUM(sales) WHERE day BETWEEN 1000 AND 500000
 
 ---
 
-## 📈 Empirical Benchmarks
+##  Empirical Benchmarks
 
 QueryLens is extensively benchmarked using automated testing harnesses. 
 
@@ -106,11 +106,11 @@ QueryLens is extensively benchmarked using automated testing harnesses.
 | **100,000** | 0.0121 ms | 0.0000 ms| 0.1070 ms | < 0.0001 ms |
 | **1,000,000**| **0.1281 ms** | **0.0008 ms** | 1.4522 ms | < 0.0001 ms |
 
-> 🏆 **Conclusion:** Notice the explicit $\mathcal{O}(N)$ spiral of the Sequential Scan rising linearly to `0.1281 ms` at 1M records, while the Segment Tree entirely flattens standard execution, computing the response in under a microsecond (`0.0008 ms`). **This results in an empirically proven 160x hardware speedup!**
+>  **Conclusion:** Notice the explicit $\mathcal{O}(N)$ spiral of the Sequential Scan rising linearly to `0.1281 ms` at 1M records, while the Segment Tree entirely flattens standard execution, computing the response in under a microsecond (`0.0008 ms`). **This results in an empirically proven 160x hardware speedup!**
 
 ---
 
-## 🎨 Interactive D3.js Workspace
+##  Interactive D3.js Workspace
 
 QueryLens is bundled with a completely uncoupled, browser-native Dashboard explicitly animating background configurations!
 
@@ -175,7 +175,7 @@ Open a modern browser instance (Chrome, Firefox) and navigate to **[http://local
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 QueryLens/
